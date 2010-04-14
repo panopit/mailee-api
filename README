@@ -12,7 +12,7 @@
 == Instalação
 
  * Execute o seguinte comando em sua aplicação Rails:
- script/plugin install 
+ > script/plugin install git@github.com:softa/mailee-api.git
  * Adicione a seguinte linha de configuração em sua aplicação:
  Mailee::Config.site = 'http://api.chave.subdominio.wizee.net'
  O site você descobre entrando no Mailee e indo em Configurações > Integração > REST
