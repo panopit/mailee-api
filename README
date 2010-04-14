@@ -1,0 +1,9 @@
+Mailee - Email marketing para quem entende de tecnologia.
+==============
+
+Instalação
+ * Execute o seguinte comando em sua aplicação Rails:
+ script/plugin install 
+
+ Add the following configuration to 
+ Mailee::Config.site = 'http://api.5f07a39c64fca.acme.wizee.net'
