@@ -121,6 +121,7 @@ module Mailee
                 next
               end
               unless contact
+                next if sync_options[:news] and ! item.send(sync_options[:news])
                 contact = Mailee::Contact.new
                 contact.internal_id = item.id
               end
