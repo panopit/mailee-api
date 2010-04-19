@@ -22,6 +22,7 @@ E.g. rake mailee:send CLASS=Contact AFTER=1.day.
     print "Enviando\n"
     klass.send_all_to_mailee(after) do
       print "."
+      STDOUT.flush
     end
   end
 end
