@@ -29,6 +29,8 @@ Gem::Specification.new do |s|
      "lib/mailee.rb",
      "mailee.gemspec",
      "pkg/mailee-0.1.0.gem",
+     "pkg/mailee-0.1.1.gem",
+     "pkg/mailee-0.1.2.gem",
      "tasks/mailee_tasks.rake",
      "test/helper.rb",
      "test/test_mailee.rb"
