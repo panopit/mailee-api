@@ -1,3 +1,4 @@
+require 'active_resource'
 module Mailee
   class Config < ActiveResource::Base
     # O self.site tem q ser configurado no environment!
@@ -135,17 +136,7 @@ module Mailee
           end
         end
       end
-      
     end
-    
-    
   end
-
-
-  
-  
-
-
-          
 end
-
+ActiveRecord::Base.send(:include, Mailee::Sync)
