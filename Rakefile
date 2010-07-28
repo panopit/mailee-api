@@ -5,12 +5,12 @@ begin
   require 'jeweler'
   Jeweler::Tasks.new do |gem|
     gem.name = "mailee"
-    gem.summary = %Q{TODO: one-line summary of your gem}
-    gem.description = %Q{TODO: longer description of your gem}
-    gem.email = "juanmaiz@gmail.com"
-    gem.homepage = "http://github.com/softa/mailee"
+    gem.summary = %Q{Gem de integração do Mailee.me}
+    gem.description = %Q{Permite sincronizar automaticamente seus modelos com o Mailee.me, inclusive com gerenciamento de optin.}
+    gem.email = "suporte@mailee.me"
+    gem.homepage = "http://help.mailee.me/integration_rails.html"
     gem.authors = ["Juan Maiz"]
-    gem.add_development_dependency "thoughtbot-shoulda", ">= 0"
+    # gem.add_development_dependency "thoughtbot-shoulda", ">= 0"
     # gem is a Gem::Specification... see http://www.rubygems.org/read/chapter/20 for additional settings
   end
   Jeweler::GemcutterTasks.new
