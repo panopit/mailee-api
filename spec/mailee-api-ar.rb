@@ -1,0 +1,42 @@
+require File.expand_path(File.dirname(__FILE__) + '/ar_spec_helper')
+  
+describe "Mailee" do
+
+  before(:each) do
+    Mailee::Config.site = "http://api.bdb28c0a0a4a3.softa.server:3000"
+    @moment = Time.now.strftime('%Y%m%d%H%M%S')
+  end
+  
+  it "should create if news is checked" do
+    foo = Foo.create :name => "rest_test_foo_#{@moment}", :email => "rest_test_foo_#{@moment}@test.com", :news => true
+    found = Mailee::Contact.find_by_email("rest_test_foo_#{@moment}@test.com")
+    found.internal_id.to_i.should be foo.id
+    # ==
+    bar = Bar.create :other_name => "rest_test_bar_#{@moment}", :other_email => "rest_test_bar_#{@moment}@test.com", :other_news => true
+    found = Mailee::Contact.find_by_email("rest_test_bar_#{@moment}@test.com")
+    found.internal_id.to_i.should be bar.id
+  end
+
+  it "should not create if news is not checked" do
+    foo = Foo.create :name => "rest_test_foo_#{@moment}", :email => "rest_test_foo_#{@moment}@test.com", :news => false
+    found = Mailee::Contact.find_by_email("rest_test_foo_#{@moment}@test.com")
+    found.should be nil
+    # ==
+    bar = Bar.create :other_name => "rest_test_bar_#{@moment}", :other_email => "rest_test_bar_#{@moment}@test.com", :other_news => false
+    found = Mailee::Contact.find_by_email("rest_test_bar_#{@moment}@test.com")
+    found.should be nil
+  end
+
+  it "should create if news is updated" do
+    foo = Foo.create :name => "rest_test_foo_#{@moment}", :email => "rest_test_foo_#{@moment}@test.com", :news => false
+    foo.update_attribute :news, true
+    found = Mailee::Contact.find_by_email("rest_test_foo_#{@moment}@test.com")
+    found.internal_id.to_i.should be foo.id
+    # ==
+    bar = Bar.create :other_name => "rest_test_bar_#{@moment}", :other_email => "rest_test_bar_#{@moment}@test.com", :other_news => false
+    bar.update_attribute :other_news, true
+    found = Mailee::Contact.find_by_email("rest_test_bar_#{@moment}@test.com")
+    found.internal_id.to_i.should be bar.id
+  end
+  
+end
