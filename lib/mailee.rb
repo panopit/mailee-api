@@ -169,4 +169,4 @@ module Mailee
     end
   end
 end
-ActiveRecord::Base.send(:include, Mailee::Sync)
+ActiveRecord::Base.send(:include, Mailee::Sync) if defined?(ActiveRecord)
