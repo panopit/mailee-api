@@ -7,14 +7,45 @@ module Mailee
     def self.find_by_internal_id iid
       find(:first, :params => {:internal_id => iid})
     end
+    def self.find_by_email email
+      find(:first, :params => {:email => email})
+    end
+    def self.search keyword, page=1
+      find(:all, :params => {:page => page, :by_keyword => keyword })
+    end
     def unsubscribe(data={})
       #E.g. data --> {:reason => 'Trip to nowhere', :spam => false}
       put(:unsubscribe, :unsubscribe => {:reason => 'Motivo não especificado'}.merge(data))
     end
+    def subscribe(list)
+      put(:subscribe, :list => {:name => list})
+    end
   end
   class List < Config
   end
-  
+  class Template < Config
+  end
+  class Quick < Config
+    self.collection_name = "quick"
+    def self.import contacts
+      create :contacts => contacts
+    end
+  end
+  class Message < Config
+    def test contacts
+      put(:test, :contacts => contacts)
+    end
+    def ready date=nil, hour=0
+      if date && date.is_a?(Date)
+        put(:ready, :when => 'after', :date => date.strftime("%d/%m/%Y"), :hour => hour)
+      else
+        put(:ready, :when => 'now')
+      end
+    end
+  end
+  class Report < Config
+  end
+
   module Sync
     def self.included(base) # :nodoc:
       base.extend ClassMethods
@@ -45,8 +76,7 @@ module Mailee
         self.included_modules.include?(InstanceMethods)
       end
     end
-    
-      
+
     module InstanceMethods #:nodoc:
       def self.included(base) # :nodoc:
         base.extend ClassMethods
