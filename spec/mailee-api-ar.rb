@@ -6,7 +6,12 @@ describe "Mailee" do
     Mailee::Config.site = "http://api.bdb28c0a0a4a3.softa.server:3000"
     @moment = Time.now.strftime('%Y%m%d%H%M%S')
   end
-  
+
+  it "should respond to sync_with_mailee" do
+    ActiveRecord::Base.should respond_to(:sync_with_mailee)
+  end
+
+
   it "should create if news is checked" do
     foo = Foo.create :name => "rest_test_foo_#{@moment}", :email => "rest_test_foo_#{@moment}@test.com", :news => true
     found = Mailee::Contact.find_by_email("rest_test_foo_#{@moment}@test.com")

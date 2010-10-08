@@ -38,6 +38,7 @@ GEM
       activesupport (>= 2.3.6)
       mime-types
       treetop (>= 1.4.5)
+    mailee (0.4.0)
     mime-types (1.16)
     polyglot (0.3.1)
     rack (1.2.1)
@@ -69,5 +70,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  mailee (= 0.4.0)
   rails (= 3.0.0)
   sqlite3-ruby

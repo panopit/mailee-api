@@ -1,5 +1,3 @@
-#INSERT INTO "unsubscribes" ("created_at", "contact_id", "reason", "spam", "message_id") VALUES('2010-10-05 22:52:25.657597', 2082562, default, 'f', default) RETURNING "id"
-
 require File.expand_path(File.dirname(__FILE__) + '/spec_helper')
 
 describe "Mailee" do

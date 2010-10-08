@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{mailee}
-  s.version = "0.3.0"
+  s.version = "0.4.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Juan Maiz"]
-  s.date = %q{2010-10-07}
+  s.date = %q{2010-10-08}
   s.description = %q{Permite sincronizar automaticamente seus modelos com o Mailee.me, inclusive com gerenciamento de optin.}
   s.email = %q{suporte@mailee.me}
   s.extra_rdoc_files = [
@@ -77,11 +77,17 @@ Gem::Specification.new do |s|
      "init.rb",
      "install.rb",
      "lib/mailee.rb",
+     "lib/mailee/action_mailer.rb",
+     "lib/mailee/active_record.rb",
+     "lib/mailee/active_resource.rb",
+     "lib/mailee/railties.rb",
      "mailee.gemspec",
      "pkg/mailee-0.1.0.gem",
      "pkg/mailee-0.1.1.gem",
      "pkg/mailee-0.1.2.gem",
+     "spec/am_spec_helper.rb",
      "spec/ar_spec_helper.rb",
+     "spec/mailee-api-am.rb",
      "spec/mailee-api-ar.rb",
      "spec/mailee-api.rb",
      "spec/spec.opts",
@@ -94,7 +100,9 @@ Gem::Specification.new do |s|
   s.rubygems_version = %q{1.3.7}
   s.summary = %q{Gem de integração do Mailee.me}
   s.test_files = [
-    "spec/ar_spec_helper.rb",
+    "spec/am_spec_helper.rb",
+     "spec/ar_spec_helper.rb",
+     "spec/mailee-api-am.rb",
      "spec/mailee-api-ar.rb",
      "spec/mailee-api.rb",
      "spec/spec_helper.rb"
