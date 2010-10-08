@@ -50,28 +50,29 @@ Uso
   * Na mão (console)
 
   Você pode usar a api do maile "na mão". Basta abrir o console e usar:
-  > ruby script/console
-  > include Mailee
-  > Contact.find(:all)
-  > Contact.find(:first)
-  > Contact.search('russell')
-  > Contact.find_by_internal_id(789)
-  > Contact.find_by_email('russell@cambridge.edu.uk')
-  > Contact.create(:name => 'Bertrand Russell', :email => 'russell@cambridge.edu.uk')
-  > Contact.create(:email => 'ludwig@wittgenstein.edu.uk', :dynamic_attributes => {:influence => 'Frege'})
-  > List.find(:all)
-  > List.find(:first)
-  > List.create(:name => 'My List')
-  > Template.find(:all)
-  > Template.find(:first)
-  > Template.create(:title => 'My Template', :html => File.read('mytemplate.html'))
-  > # Message with HTML and list
-  > message = Message.create :title => "Title", :subject => "Subject", :from_name => "Rorty", :from_email => "rorty@princeton.us", :html => File.read('myhtml.html'), :list_id => 987
-  > # Message with emails and template (with edits & repeats)
-  > message = Message.create :title => "Title", :subject => "Subject", :from_name => "Rorty", :from_email => "rorty@princeton.us", :template_id => 765, :edits => {:greeting => 'Hi Davidson!'}, :repeats => {:news => ['A good news', 'A bad news'], :emails => 'davidson@some.com davidson@another.com'}
-  > message.test([44,55,66])
-  > message.ready # send it now
-  > message.ready(10.days.from_now)
+  = code
+    ruby script/console
+    include Mailee
+    Contact.find(:all)
+    Contact.find(:first)
+    Contact.search('russell')
+    Contact.find_by_internal_id(789)
+    Contact.find_by_email('russell@cambridge.edu.uk')
+    Contact.create(:name => 'Bertrand Russell', :email => 'russell@cambridge.edu.uk')
+    Contact.create(:email => 'ludwig@wittgenstein.edu.uk', :dynamic_attributes => {:influence => 'Frege'})
+    List.find(:all)
+    List.find(:first)
+    List.create(:name => 'My List')
+    Template.find(:all)
+    Template.find(:first)
+    Template.create(:title => 'My Template', :html => File.read('mytemplate.html'))
+    # Message with HTML and list
+    message = Message.create :title => "Title", :subject => "Subject", :from_name => "Rorty", :from_email => "rorty@princeton.us", :html => File.read('myhtml.html'), :list_id => 987
+    # Message with emails and template (with edits & repeats)
+    message = Message.create :title => "Title", :subject => "Subject", :from_name => "Rorty", :from_email => "rorty@princeton.us", :template_id => 765, :edits => {:greeting => 'Hi Davidson!'}, :repeats => {:news => ['A good news', 'A bad news'], :emails => 'davidson@some.com davidson@another.com'}
+    message.test([44,55,66])
+    message.ready # send it now
+    message.ready(10.days.from_now)
 
   * Com modelos (ActiveRecord)
 
