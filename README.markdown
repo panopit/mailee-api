@@ -1,7 +1,8 @@
-= Mailee - Email marketing para quem entende de tecnologia.
+Mailee - Email marketing para quem entende de tecnologia.
 ==============
 
-== O problema
+O problema
+==
 
   Você está desenvolvendo um sistema (e-commerce, cms, erp...) e o seu cliente solicita a possibilidade de enviar e-mails promocionais, ou notícias, para diversos contatos. Por experiência própria, você sabe que enviar e-mails não é coisa para _scriptkiddies_, e que, de fato, não vale a pena o esforço de desenvolver todo um sistema que faça o envio, garanta a entrega, analise os retornos e também apresente resultados de tudo isso. O problema é que os sistemas que você conhece não permitem uma integração fácil e rápida com seus sistemas em Rails...
 
@@ -45,27 +46,27 @@
 
   Você pode usar a api do maile "na mão". Basta abrir o console e usar:
   > ruby script/console
-  > >> include Mailee
-  > >> Contact.find(:all)
-  > >> Contact.find(:first)
-  > >> Contact.search('russell')
-  > >> Contact.find_by_internal_id(789)
-  > >> Contact.find_by_email('russell@cambridge.edu.uk')
-  > >> Contact.create(:name => 'Bertrand Russell', :email => 'russell@cambridge.edu.uk')
-  > >> Contact.create(:email => 'ludwig@wittgenstein.edu.uk', :dynamic_attributes => {:influence => 'Frege'})
-  > >> List.find(:all)
-  > >> List.find(:first)
-  > >> List.create(:name => 'My List')
-  > >> Template.find(:all)
-  > >> Template.find(:first)
-  > >> Template.create(:title => 'My Template', :html => File.read('mytemplate.html'))
+  > include Mailee
+  > Contact.find(:all)
+  > Contact.find(:first)
+  > Contact.search('russell')
+  > Contact.find_by_internal_id(789)
+  > Contact.find_by_email('russell@cambridge.edu.uk')
+  > Contact.create(:name => 'Bertrand Russell', :email => 'russell@cambridge.edu.uk')
+  > Contact.create(:email => 'ludwig@wittgenstein.edu.uk', :dynamic_attributes => {:influence => 'Frege'})
+  > List.find(:all)
+  > List.find(:first)
+  > List.create(:name => 'My List')
+  > Template.find(:all)
+  > Template.find(:first)
+  > Template.create(:title => 'My Template', :html => File.read('mytemplate.html'))
   > # Message with HTML and list
-  > >> message = Message.create :title => "Title", :subject => "Subject", :from_name => "Rorty", :from_email => "rorty@princeton.us", :html => File.read('myhtml.html'), :list_id => 987
+  > message = Message.create :title => "Title", :subject => "Subject", :from_name => "Rorty", :from_email => "rorty@princeton.us", :html => File.read('myhtml.html'), :list_id => 987
   > # Message with emails and template (with edits & repeats)
-  > >> message = Message.create :title => "Title", :subject => "Subject", :from_name => "Rorty", :from_email => "rorty@princeton.us", :template_id => 765, :edits => {:greeting => 'Hi Davidson!'}, :repeats => {:news => ['A good news', 'A bad news'], :emails => 'davidson@some.com davidson@another.com'}
-  > >> message.test([44,55,66])
-  > >> message.ready # send it now
-  > >> message.ready(10.days.from_now)
+  > message = Message.create :title => "Title", :subject => "Subject", :from_name => "Rorty", :from_email => "rorty@princeton.us", :template_id => 765, :edits => {:greeting => 'Hi Davidson!'}, :repeats => {:news => ['A good news', 'A bad news'], :emails => 'davidson@some.com davidson@another.com'}
+  > message.test([44,55,66])
+  > message.ready # send it now
+  > message.ready(10.days.from_now)
 
   * Com modelos (ActiveRecord)
 
