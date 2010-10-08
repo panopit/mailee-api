@@ -5,7 +5,7 @@
 
 Gem::Specification.new do |s|
   s.name = %q{mailee}
-  s.version = "0.4.0"
+  s.version = "0.4.1"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Juan Maiz"]
@@ -15,6 +15,7 @@ Gem::Specification.new do |s|
   s.extra_rdoc_files = [
     "LICENSE",
      "README.markdown",
+     "README.markdown.pt",
      "README.rdoc"
   ]
   s.files = [
