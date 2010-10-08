@@ -2,15 +2,17 @@ Mailee - Email marketing para quem entende de tecnologia.
 ==============
 
 O problema
-==
+=
 
   Você está desenvolvendo um sistema (e-commerce, cms, erp...) e o seu cliente solicita a possibilidade de enviar e-mails promocionais, ou notícias, para diversos contatos. Por experiência própria, você sabe que enviar e-mails não é coisa para _scriptkiddies_, e que, de fato, não vale a pena o esforço de desenvolver todo um sistema que faça o envio, garanta a entrega, analise os retornos e também apresente resultados de tudo isso. O problema é que os sistemas que você conhece não permitem uma integração fácil e rápida com seus sistemas em Rails...
 
-== A solução
+A solução
+=
 
   Esta gem tem como objetivo manter os contatos da sua aplicação sincronizados com os contatos do Mailee (www.mailee.me) sem muito esforço. De fato, basta executar o método "sync_with_mailee" no seu modelo (clientes, contatos, pessoas...) que este irá automaticamente realizar as tarefas de inserir, atualizar, excluir e descadastrar via REST. No Mailee, seu cliente poderá então montar as mensagens e enviar para os contatos.
 
-== O que posso fazer com a gem?
+O que posso fazer com a gem?
+=
 
  * Simplesmente utilizar as classes do Mailee para:
    * Criar, atualizar, buscar e excluir contatos.
@@ -22,7 +24,8 @@ O problema
  * Integrar com ActiveRecord (com ou sem Rails) e fazer um modelo sincronizar automaticamente com o Mailee.me.
  * Integrar com ActionMailer (com ou sem Rails) e fazer os mailers enviarem as mensagens pelo Mailee.me.
 
-== Instalação
+Instalação
+=
 
  * Adicione a seguinte linha ao seu Gemfile:
  > gem 'mailee'
@@ -36,11 +39,13 @@ O problema
  
   Pronto!
 
-== Compatibilidade
+Compatibilidade
+=
 
   Rails 3. 'Nuff said. Se você precisa de suporte aoRails 2, baixe a versão 0.1.0, mas ela possui muito menos funcionalidades do que a versão atual.
 
-== Uso
+Uso
+=
 
   * Na mão (console)
 
@@ -150,10 +155,12 @@ O problema
   > rake mailee:send CLASS=Contact AFTER=5.days.ago
   Neste caso, ele vai apenas sincronizar os contatos que foram atualizados (baseado no campo "updated_at") nos últimos 5 dias.  
 
-== Cuidado!
+Cuidado!
+=
 
   A gem utiliza a API REST do Mailee para enviar dados, por isto cuide bem da sua URL - se alguém descobrir isso pode ser ruim. Para saber qual o contato na sua aplicação a gem utiliza um campo disponível no Mailee chamado "internal_id" o qual recebe o "id" da sua tabela na criação. Este id é usado nas atualizações, descadastros e exclusões, então tome (ou avise seu cliente para tomar!) cuidado ao editar este campo na interface do Mailee.
 
-== Dúvidas?
+Dúvidas?
+=
 
   Qualquer dúvida, não hesite em falar conosco pelo e-mail suporte@mailee.me, pelo twitter @maileeme ou pelo IRC #maileeme. 
