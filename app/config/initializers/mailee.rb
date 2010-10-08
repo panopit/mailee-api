@@ -1,0 +1,1 @@
+Mailee::Config.site = 'your.api.path'

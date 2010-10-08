@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{mailee}
-  s.version = "0.2.1"
+  s.version = "0.3.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Juan Maiz"]
-  s.date = %q{2010-10-06}
+  s.date = %q{2010-10-07}
   s.description = %q{Permite sincronizar automaticamente seus modelos com o Mailee.me, inclusive com gerenciamento de optin.}
   s.email = %q{suporte@mailee.me}
   s.extra_rdoc_files = [
