@@ -32,7 +32,7 @@ Instalação
  * E execute o bundle:
  > bundle install
  * Uma vez instalado, para configurar, execute:
- > rake mailee_rails:setup
+ > rails g mailee_rails:setup
 
   Este comando irá solicitar sua URL da API e criar um initializer com toda a configuração necessária.
   A URL da API você descobre entrando no Mailee e indo em Configurações > Integração > REST

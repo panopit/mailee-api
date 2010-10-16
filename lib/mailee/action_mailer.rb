@@ -30,7 +30,7 @@ module Mailee
       from_name = mail.header['from'].to_s.scan(/(.+?) <.+?>$/).to_s      
       message = Mailee::Message.create :title => mail.subject, :subject => mail.subject, :from_name => from_name, :from_email => mail.from.first, :emails => mail.to.join(' '), :html => mail.body.to_s
       result = message.ready(mail.date)
-      mail.instance_eval{ self.class.send('attr_accessor', :mailee_message); self.mailee_message = result }
+      mail.instance_eval{ self.class.send('attr_accessor', :mailee_message); self.mailee_message = message }
       self 
     end
   end
