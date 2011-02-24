@@ -1,3 +1,4 @@
+# coding: utf-8
 # The Sync module is responsible for keeping a model syncd with Mailee.
 # It's behaviour is still too rails-twooish. But soon I'll make it more
 # treeish using Railties and stuff. But it works.
