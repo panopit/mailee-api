@@ -5,5 +5,5 @@ require 'active_record'
 require 'mailee'
 
 RSpec.configure do |config|
-  
+  Mailee::Config.site = "http://api.869a72b17b05a.mailee-api.mailee.me"
 end
