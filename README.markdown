@@ -42,7 +42,7 @@ Instalação
 Compatibilidade
 =
 
-  Rails 3. 'Nuff said. Se você precisa de suporte aoRails 2, baixe a versão 0.1.0, mas ela possui muito menos funcionalidades do que a versão atual.
+  Rails 3. 'Nuff said. Se você precisa de suporte ao Rails 2, baixe a versão 0.1.0, mas ela possui muito menos funcionalidades do que a versão atual.
 
 Uso
 =
