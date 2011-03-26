@@ -3,10 +3,8 @@ $LOAD_PATH.unshift(File.join(File.dirname(__FILE__), '..', 'lib'))
 require 'sqlite3'
 require 'active_record'
 require 'mailee'
-require 'spec'
-require 'spec/autorun'
 
-Spec::Runner.configure do |config|
+RSpec.configure do |config|
   
 end
 

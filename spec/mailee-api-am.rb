@@ -3,7 +3,7 @@ require File.expand_path(File.dirname(__FILE__) + '/am_spec_helper')
 describe "Mailee" do
 
   before(:each) do
-    Mailee::Config.site = "http://api.bdb28c0a0a4a3.softa.server:3000"
+    Mailee::Config.site = "http://api.869a72b17b05a.mailee-api.mailee.me"
   end
   
   it "should respond to send_with_mailee" do

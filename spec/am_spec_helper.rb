@@ -3,10 +3,8 @@ $LOAD_PATH.unshift(File.join(File.dirname(__FILE__), '..', 'lib'))
 
 require 'action_mailer'
 require 'mailee'
-require 'spec'
-require 'spec/autorun'
 
-Spec::Runner.configure do |config|
+RSpec.configure do |config|
 end
 
 class Foo < ActionMailer::Base
