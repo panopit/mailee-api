@@ -1,5 +1,5 @@
 require File.expand_path(File.dirname(__FILE__) + '/ar_spec_helper')
-  
+
 describe "Mailee" do
 
   before(:each) do

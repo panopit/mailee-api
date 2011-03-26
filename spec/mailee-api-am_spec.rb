@@ -11,11 +11,11 @@ describe "Mailee" do
   end
 
   it "should use Mailee::Mailer as the delivery method" do
-    Foo.delivery_method.should be(Mailee::Mailer)
+    FooMailer.delivery_method.should be(Mailee::Mailer)
   end
 
   it "should deliver" do
-    result = Foo.bar.deliver
+    result = FooMailer.bar.deliver
     result.should_not be(false)
     result.class.should be(Mail::Message)
     result.delivery_method.class.should be(Mailee::Mailer)

@@ -1,13 +1,13 @@
 $LOAD_PATH.unshift(File.dirname(__FILE__))
 $LOAD_PATH.unshift(File.join(File.dirname(__FILE__), '..', 'lib'))
-
+require 'rspec'
 require 'action_mailer'
 require 'mailee'
 
 RSpec.configure do |config|
 end
 
-class Foo < ActionMailer::Base
+class FooMailer < ActionMailer::Base
 
   send_with_mailee
 
