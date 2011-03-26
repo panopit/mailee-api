@@ -6,7 +6,7 @@ class Foo < ActionMailer::Base
 
   def bar(date=Time.now)
     @greeting = "Hi"
-    mail :date => date, :to => ["juanmaiz@gmail.com"]
+    mail :date => date, :to => ["juanmaiz@gmail.com"], :subject => "Bar"
   end
 
 end
