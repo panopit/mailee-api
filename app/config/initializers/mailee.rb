@@ -1,1 +1,1 @@
-Mailee::Config.site = 'http://api.bdb28c0a0a4a3.softa.mailee.me'
+Mailee::Config.site = "http://api.869a72b17b05a.mailee-api.mailee.me"

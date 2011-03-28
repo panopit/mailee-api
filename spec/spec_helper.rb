@@ -1,10 +1,9 @@
 $LOAD_PATH.unshift(File.dirname(__FILE__))
 $LOAD_PATH.unshift(File.join(File.dirname(__FILE__), '..', 'lib'))
-#require 'active_record'
+require 'rspec'
+require 'active_record'
 require 'mailee'
-require 'spec'
-require 'spec/autorun'
 
-Spec::Runner.configure do |config|
-  
+RSpec.configure do |config|
+  Mailee::Config.site = "http://api.869a72b17b05a.mailee-api.mailee.me"
 end

@@ -1,16 +1,14 @@
 require File.expand_path(File.dirname(__FILE__) + '/ar_spec_helper')
-  
+
 describe "Mailee" do
 
   before(:each) do
-    Mailee::Config.site = "http://api.bdb28c0a0a4a3.softa.server:3000"
     @moment = Time.now.strftime('%Y%m%d%H%M%S')
   end
 
   it "should respond to sync_with_mailee" do
     ActiveRecord::Base.should respond_to(:sync_with_mailee)
   end
-
 
   it "should create if news is checked" do
     foo = Foo.create :name => "rest_test_foo_#{@moment}", :email => "rest_test_foo_#{@moment}@test.com", :news => true
@@ -44,4 +42,9 @@ describe "Mailee" do
     found.internal_id.to_i.should be bar.id
   end
   
+  it "should subscribe to a list if :list is set" do
+    foo = FooList.create :name => "rest_test_foo_#{@moment}", :email => "rest_test_foo_#{@moment}@test.com", :news => true
+    # TODO I really cannot know if the email was subscribed successfully :S
+  end
+
 end

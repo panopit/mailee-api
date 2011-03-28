@@ -1,3 +1,5 @@
+# coding: utf-8
+
 module Mailee
 
   # The Config class is used to set your api url.

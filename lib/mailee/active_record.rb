@@ -1,3 +1,4 @@
+# coding: utf-8
 # The Sync module is responsible for keeping a model syncd with Mailee.
 # It's behaviour is still too rails-twooish. But soon I'll make it more
 # treeish using Railties and stuff. But it works.
@@ -42,6 +43,10 @@ module Mailee
           unless self.column_names.include?(self.sync_options[:news].to_s)
             self.sync_options[:news] = nil
           end
+          if self.sync_options[:list]
+            lists = List.find(:all).map(&:name)
+            raise "A lista '#{self.sync_options[:list]}' não existe no Mailee.me." unless lists.include?(self.sync_options[:list])
+          end
         end
         include InstanceMethods
       end
@@ -66,6 +71,7 @@ module Mailee
           contact.email = send(sync_options[:email])
           contact.name = send(sync_options[:name]) if sync_options[:name]
           contact.save
+          contact.put(:subscribe, :list => sync_options[:list]) if sync_options[:list]
         end
       rescue
         logger.warn "MAILEE-API: Falhou ao criar o contato #{id} no Mailee"
@@ -82,6 +88,7 @@ module Mailee
               contact.email = send(sync_options[:email])
               contact.name = send(sync_options[:name]) if sync_options[:name]
               contact.save
+              contact.put(:subscribe, :list => sync_options[:list]) if sync_options[:list]
             end
           else
             create_in_mailee # Se não achou o contato tem q inserir.

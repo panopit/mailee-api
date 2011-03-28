@@ -2,20 +2,16 @@ require File.expand_path(File.dirname(__FILE__) + '/am_spec_helper')
   
 describe "Mailee" do
 
-  before(:each) do
-    Mailee::Config.site = "http://api.bdb28c0a0a4a3.softa.server:3000"
-  end
-  
   it "should respond to send_with_mailee" do
     ActionMailer::Base.should respond_to(:send_with_mailee)
   end
 
   it "should use Mailee::Mailer as the delivery method" do
-    Foo.delivery_method.should be(Mailee::Mailer)
+    FooMailer.delivery_method.should be(Mailee::Mailer)
   end
 
   it "should deliver" do
-    result = Foo.bar.deliver
+    result = FooMailer.bar.deliver
     result.should_not be(false)
     result.class.should be(Mail::Message)
     result.delivery_method.class.should be(Mailee::Mailer)

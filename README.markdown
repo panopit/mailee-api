@@ -42,7 +42,7 @@ Instalação
 Compatibilidade
 =
 
-  Rails 3. 'Nuff said. Se você precisa de suporte aoRails 2, baixe a versão 0.1.0, mas ela possui muito menos funcionalidades do que a versão atual.
+  Rails 3. 'Nuff said. Se você precisa de suporte ao Rails 2, baixe a versão 0.1.0, mas ela possui muito menos funcionalidades do que a versão atual.
 
 Uso
 =
@@ -93,6 +93,11 @@ Uso
       sync_with_mailee :name => :my_name_column
     end  
   Se o valor do campo "news" (ou o que você utilizar para optin) for false, a gem não cadastrará o contato no Mailee. Se o contato já estiver cadastrado e o valor deste campo mudar para falso, o contato será descadastrado e _não_ poderá ser mais cadastrado no Mailee (normas de privacidade). Se ele estiver falso e mudar para verdadeiro, ele irá cadastrá-lo.
+  =code
+    class Contact < ActiveRecord::Base
+      sync_with_mailee :list => "Nome da sua lista"
+    end  
+  Você também pode (e a gente recomenda que você o faça) informar a lista na qual você quer que o contato seja inscrito quando ele for cadastrado no Mailee.me. Assim, quando você for criar uma campanha todos seus contatos cadastrados pelo seu sistema já estarão em uma lista. Aí é só enviar para esta lista e pronto.
 
   * Com mailers (ActionMailer)
   

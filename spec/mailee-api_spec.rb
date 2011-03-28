@@ -3,7 +3,6 @@ require File.expand_path(File.dirname(__FILE__) + '/spec_helper')
 describe "Mailee" do
 
   before(:each) do
-    Mailee::Config.site = "http://api.bdb28c0a0a4a3.softa.server:3000"
     @moment = Time.now.strftime('%Y%m%d%H%M%S')
   end
 
