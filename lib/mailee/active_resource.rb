@@ -20,7 +20,11 @@ module Mailee
   # If you use mailee gem to sync a model, it will always set the internal_id
   # to your "local" model id and then search based on it to update de remote
   # record.
+  #
+  # Writable attributes:
+  #   :name, :email, :internal_id, :sex, :birthday, :age, :phone, :mobile, :address, :notes, :photo, :company, :position
   class Contact < Config
+
     def self.find_by_internal_id iid
       find(:first, :params => {:internal_id => iid})
     end
@@ -40,11 +44,21 @@ module Mailee
   end
 
   # The List class gives you default access to your lists (all, first, create, update, destroy)
+  # Writable attributes:
+  #   :name, :active, :company, :description, :address, :phone, :site
   class List < Config
   end
 
   # The Template class gives you default access to your templates (all, first, create, update, destroy)
+  # Writable attributes:
+  #   :title, :html
   class Template < Config
+    def self.writable_attributes
+      [:title, :html]
+    end
+    def thumb
+      "http://assets.mailee.me/system/templates/#{id}/thumbs/thumb/#{id}.png"
+    end
   end
 
   # The Quick class allows you to import contacts to mailee just like
@@ -75,12 +89,27 @@ module Mailee
   #   # Creating a message (still a draft):
   #   message = Mailee::Message.create :title => "TITLE", :subject => "SUBJ", :from_name => "NAME", :from_email => "your@email.com", :html => "<h1>Hello</h1>", :list_id => 666
   #   # Sending tests. 33, 44 and 55 are contact's ids.
-  #   message.test([33,44,55]).should_not be nil
+  #   message.test([33,44,55])
   #   # Sending the message now ...
   #   message.ready
   #   # ... or sending the message 10 days from now
   #   message.ready(10.days.from_now)
+  #
+  # Writeable attributes:
+  #  :newsletter_id, :template_id, :list_id, :segment_id, :title, :subject, :from_name, :from_email, :reply_email, :html, :analytics
   class Message < Config
+    def self.writeable_attributes
+      [:newsletter_id, :template_id, :list_id, :contacts, :segment_id, :title, :subject, :from_name, :from_email, :reply_email, :html, :analytics]
+    end
+    def human_status
+        ['','draft','sending','sent','generating'][status]
+    end
+    def signature
+      "#{from_name} <#{from_email}>"
+    end
+    def thumb(size='thumb')
+      "http://assets.mailee.me/system/messages/#{id}/thumbs/#{size}/#{id}.png"
+    end
     def test contacts
       put(:test, :contacts => contacts)
     end
