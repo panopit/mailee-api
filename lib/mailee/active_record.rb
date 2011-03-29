@@ -43,10 +43,6 @@ module Mailee
           unless self.column_names.include?(self.sync_options[:news].to_s)
             self.sync_options[:news] = nil
           end
-          if self.sync_options[:list]
-            lists = List.find(:all).map(&:name)
-            raise "A lista '#{self.sync_options[:list]}' não existe no Mailee.me." unless lists.include?(self.sync_options[:list])
-          end
         end
         include InstanceMethods
       end
