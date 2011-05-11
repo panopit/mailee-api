@@ -50,7 +50,7 @@ Uso
   * Na mão (console)
 
   Você pode usar a api do maile "na mão". Basta abrir o console e usar:
-  = code
+  =code
     ruby script/console
     include Mailee
     Contact.find(:all)
@@ -60,6 +60,8 @@ Uso
     Contact.find_by_email('russell@cambridge.edu.uk')
     Contact.create(:name => 'Bertrand Russell', :email => 'russell@cambridge.edu.uk')
     Contact.create(:email => 'ludwig@wittgenstein.edu.uk', :dynamic_attributes => {:influence => 'Frege'})
+    Contact.find_by_internal_id(789).put(:subscribe, :list => {:name => 'Analytic Philosophers'})
+    Contact.find_by_internal_id(789).put(:unsubscribe, :unsubscribe => {:reason => 'Email too long'})
     List.find(:all)
     List.find(:first)
     List.create(:name => 'My List')

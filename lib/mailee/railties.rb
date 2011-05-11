@@ -21,7 +21,7 @@ class MaileeRails < Rails::Railtie
           puts "Invalid URL. Please try again:"
           url = readline.gsub(/\n/,'').gsub(/\s+/, '')
         else
-          puts "I think need support. Please talk to us on IRC (#maileeme) or send an email to suporte@mailee.me"
+          puts "I think you need support. Please talk to us on IRC (#maileeme) or send an email to suporte@mailee.me"
           exit
         end
       end
