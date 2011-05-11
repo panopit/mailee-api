@@ -50,7 +50,7 @@ Uso
   * Na mão (console)
 
   Você pode usar a api do maile "na mão". Basta abrir o console e usar:
-  =code
+  = code
     ruby script/console
     include Mailee
     Contact.find(:all)
