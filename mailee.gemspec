@@ -100,7 +100,7 @@ Gem::Specification.new do |s|
   s.homepage = "http://help.mailee.me/integration_rails.html"
   s.require_paths = ["lib"]
   s.rubygems_version = "1.8.10"
-  s.summary = "Gem de integra\u{e7}\u{e3}o do Mailee.me"
+  s.summary = "Gem para uso da API do Mailee.me"
 
   if s.respond_to? :specification_version then
     s.specification_version = 3
