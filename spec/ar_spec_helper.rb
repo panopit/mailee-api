@@ -4,6 +4,7 @@ require 'rspec'
 require 'sqlite3'
 require 'active_record'
 require 'mailee'
+require 'mailee/active_record'
 
 RSpec.configure do |config|
   Mailee::Config.site = "http://api.869a72b17b05a.mailee-api.mailee.me"
