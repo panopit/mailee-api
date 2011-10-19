@@ -4,25 +4,25 @@
 # -*- encoding: utf-8 -*-
 
 Gem::Specification.new do |s|
-  s.name = %q{mailee}
+  s.name = "mailee"
   s.version = "0.5.1"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Juan Maiz"]
-  s.date = %q{2011-03-29}
-  s.description = %q{Permite sincronizar automaticamente seus modelos com o Mailee.me, inclusive com gerenciamento de optin.}
-  s.email = %q{suporte@mailee.me}
+  s.date = "2011-10-19"
+  s.description = "Permite sincronizar automaticamente seus modelos com o Mailee.me, inclusive com gerenciamento de optin."
+  s.email = "suporte@mailee.me"
   s.extra_rdoc_files = [
     "LICENSE",
-    "README.markdown",
-    "README.rdoc"
+    "README.markdown"
   ]
   s.files = [
     ".rspec",
+    "Gemfile",
+    "Gemfile.lock",
     "LICENSE",
     "MIT-LICENSE",
     "README.markdown",
-    "README.rdoc",
     "Rakefile",
     "VERSION",
     "app/.gitignore",
@@ -88,6 +88,7 @@ Gem::Specification.new do |s|
     "pkg/mailee-0.1.1.gem",
     "pkg/mailee-0.1.2.gem",
     "pkg/mailee-0.4.4.gem",
+    "pkg/mailee-0.5.1.gem",
     "spec/am_spec_helper.rb",
     "spec/ar_spec_helper.rb",
     "spec/mailee-api-am_spec.rb",
@@ -96,27 +97,39 @@ Gem::Specification.new do |s|
     "spec/spec_helper.rb",
     "tasks/mailee_tasks.rake"
   ]
-  s.homepage = %q{http://help.mailee.me/integration_rails.html}
+  s.homepage = "http://help.mailee.me/integration_rails.html"
   s.require_paths = ["lib"]
-  s.rubygems_version = %q{1.3.7}
-  s.summary = %q{Gem de integração do Mailee.me}
-  s.test_files = [
-    "spec/am_spec_helper.rb",
-    "spec/ar_spec_helper.rb",
-    "spec/mailee-api-am_spec.rb",
-    "spec/mailee-api-ar_spec.rb",
-    "spec/mailee-api_spec.rb",
-    "spec/spec_helper.rb"
-  ]
+  s.rubygems_version = "1.8.10"
+  s.summary = "Gem de integra\u{e7}\u{e3}o do Mailee.me"
 
   if s.respond_to? :specification_version then
-    current_version = Gem::Specification::CURRENT_SPECIFICATION_VERSION
     s.specification_version = 3
 
     if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
+      s.add_runtime_dependency(%q<actionmailer>, ["~> 3.0"])
+      s.add_runtime_dependency(%q<activeresource>, ["~> 3.0"])
+      s.add_runtime_dependency(%q<activerecord>, ["~> 3.0"])
+      s.add_development_dependency(%q<rspec>, ["~> 2.6.0"])
+      s.add_development_dependency(%q<bundler>, ["~> 1.0.0"])
+      s.add_development_dependency(%q<jeweler>, ["~> 1.6.4"])
+      s.add_development_dependency(%q<sqlite3>, ["~> 1.3.4"])
     else
+      s.add_dependency(%q<actionmailer>, ["~> 3.0"])
+      s.add_dependency(%q<activeresource>, ["~> 3.0"])
+      s.add_dependency(%q<activerecord>, ["~> 3.0"])
+      s.add_dependency(%q<rspec>, ["~> 2.6.0"])
+      s.add_dependency(%q<bundler>, ["~> 1.0.0"])
+      s.add_dependency(%q<jeweler>, ["~> 1.6.4"])
+      s.add_dependency(%q<sqlite3>, ["~> 1.3.4"])
     end
   else
+    s.add_dependency(%q<actionmailer>, ["~> 3.0"])
+    s.add_dependency(%q<activeresource>, ["~> 3.0"])
+    s.add_dependency(%q<activerecord>, ["~> 3.0"])
+    s.add_dependency(%q<rspec>, ["~> 2.6.0"])
+    s.add_dependency(%q<bundler>, ["~> 1.0.0"])
+    s.add_dependency(%q<jeweler>, ["~> 1.6.4"])
+    s.add_dependency(%q<sqlite3>, ["~> 1.3.4"])
   end
 end
 
