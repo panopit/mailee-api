@@ -1,6 +1,14 @@
 # coding: utf-8
 
 require 'rubygems'
+require 'bundler'
+begin
+  Bundler.setup(:default, :development)
+rescue Bundler::BundlerError => e
+  $stderr.puts e.message
+  $stderr.puts "Run `bundle install` to install missing gems"
+  exit e.status_code
+end
 require 'rake'
 
 begin
@@ -12,8 +20,7 @@ begin
     gem.email = "suporte@mailee.me"
     gem.homepage = "http://help.mailee.me/integration_rails.html"
     gem.authors = ["Juan Maiz"]
-    # gem.add_development_dependency "thoughtbot-shoulda", ">= 0"
-    # gem is a Gem::Specification... see http://www.rubygems.org/read/chapter/20 for additional settings
+    # dependencies defined in Gemfile
   end
   Jeweler::GemcutterTasks.new
 rescue LoadError
