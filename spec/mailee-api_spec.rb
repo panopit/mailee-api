@@ -35,9 +35,9 @@ describe "Mailee" do
   it "should get all contacts" do
     Array.new(25){|i| Mailee::Contact.create :email => "rest_test_#{@moment}_#{i}@test.com"}
     contacts = Mailee::Contact.find(:all)
-    contacts.size.should be(15)
+    contacts.size.should == 15
     contacts = Mailee::Contact.find(:all, :params => {:page => 2, :by_keyword => "rest_test_#{@moment}" })
-    contacts.size.should be(10)
+    contacts.size.should == 10
   end
 
   it "should create contact - and find by id" do
@@ -108,6 +108,13 @@ describe "Mailee" do
     contact.unsubscribe.should_not be nil
   end
 
+  it "should create a contact, subscribe to a list and unsubscribe from a list" do
+    contact = Mailee::Contact.create :email => "rest_test_#{@moment}@test.com"
+    contact.list_subscribe("rest_test_#{@moment}").should_not be nil
+    Mailee::List.all.find{|l| l.name == "rest_test_#{@moment}"}.name.should == "rest_test_#{@moment}"
+    contact.list_unsubscribe("rest_test_#{@moment}").should_not be nil
+  end
+
   it "should search contacts" do
     Mailee::Contact.search("rest_test").should_not be nil
   end
@@ -142,7 +149,8 @@ describe "Mailee" do
     message.ready(10.days.from_now).should_not be nil
   end
 
-  it "should import (quick) - specific methods" do        Mailee::Quick.import("rest_test_#{@moment}@test.com\nrest_test_2_#{@moment}@test.com\nrest_test_3_#{@moment}@test.com").should_not be nil
+  it "should import (quick) - specific methods" do        
+    Mailee::Quick.import("rest_test_#{@moment}@test.com\nrest_test_2_#{@moment}@test.com\nrest_test_3_#{@moment}@test.com").should_not be nil
   end
 
 end

@@ -41,7 +41,14 @@ module Mailee
       put(:unsubscribe, :unsubscribe => {:reason => 'Motivo não especificado'}.merge(data))
     end
     def subscribe(list)
-      put(:subscribe, :list => {:name => list})
+      print "Warning: Mailee::Contact.subscribe will be deprecated. Use Mailee::Contact.list_subscribe instead."
+      put(:list_subscribe, :list => list)
+    end
+    def list_subscribe(list)
+      put(:list_subscribe, :list => list)
+    end
+    def list_unsubscribe(list)
+      put(:list_unsubscribe, :list => list)
     end
   end
 
