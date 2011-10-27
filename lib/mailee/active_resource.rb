@@ -8,6 +8,7 @@ module Mailee
   #
   #   Mailee::Config.site = "http://your.mailee.api.url"
   class Config < ActiveResource::Base
+    self.format = ActiveResource::Formats::XmlFormat
   end
 
   # The Contact class gives you default access to your contacts (all,
