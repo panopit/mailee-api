@@ -1,1 +1,3 @@
 mailee-api-test.db
+pkg/*
+.DS_Store
