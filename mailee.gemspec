@@ -4,17 +4,18 @@
 # -*- encoding: utf-8 -*-
 
 Gem::Specification.new do |s|
-  s.name = "mailee"
-  s.version = "0.5.1"
+  s.name = %q{mailee}
+  s.version = "0.6.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Juan Maiz"]
-  s.date = "2011-10-19"
-  s.description = "Permite sincronizar automaticamente seus modelos com o Mailee.me, inclusive com gerenciamento de optin."
-  s.email = "suporte@mailee.me"
+  s.date = %q{2011-10-21}
+  s.description = %q{Permite sincronizar automaticamente seus modelos com o Mailee.me, inclusive com gerenciamento de optin.}
+  s.email = %q{suporte@mailee.me}
   s.extra_rdoc_files = [
     "LICENSE",
-    "README.markdown"
+    "README.markdown",
+    "README.markdown.pt"
   ]
   s.files = [
     ".rspec",
@@ -97,12 +98,13 @@ Gem::Specification.new do |s|
     "spec/spec_helper.rb",
     "tasks/mailee_tasks.rake"
   ]
-  s.homepage = "http://help.mailee.me/integration_rails.html"
+  s.homepage = %q{http://help.mailee.me/integration_rails.html}
   s.require_paths = ["lib"]
-  s.rubygems_version = "1.8.10"
-  s.summary = "Gem para uso da API do Mailee.me"
+  s.rubygems_version = %q{1.3.7}
+  s.summary = %q{Gem para uso da API do Mailee.me}
 
   if s.respond_to? :specification_version then
+    current_version = Gem::Specification::CURRENT_SPECIFICATION_VERSION
     s.specification_version = 3
 
     if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
