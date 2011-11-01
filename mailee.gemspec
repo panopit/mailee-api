@@ -3,6 +3,7 @@
 # Instead, edit Jeweler::Tasks in Rakefile, and run 'rake gemspec'
 # -*- encoding: utf-8 -*-
 
+
 Gem::Specification.new do |s|
 
   s.name = "mailee"
