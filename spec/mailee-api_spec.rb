@@ -36,7 +36,7 @@ describe "Mailee" do
     Array.new(25){|i| Mailee::Contact.create :email => "rest_test_#{@moment}_#{i}@test.com"}
     contacts = Mailee::Contact.find(:all)
     contacts.size.should == 15
-    contacts = Mailee::Contact.find(:all, :params => {:page => 2, :by_keyword => "rest_test_#{@moment}" })
+    contacts = Mailee::Contact.find(:all, :params => {:page => 2, :status => 'all', :by_keyword => "rest_test_#{@moment}" })
     contacts.size.should == 10
   end
 
@@ -125,8 +125,20 @@ describe "Mailee" do
     found.id.should be(contact.id)
   end
 
+  #it "should create an invalid contact and find by internal id" do
+    #contact = Mailee::Contact.create :email => "rest_test_#{@moment}@test.com", :internal_id => @moment, :contact_status_id => -1
+    #found = Mailee::Contact.find_by_internal_id(@moment)
+    #found.id.should be(contact.id)
+  #end
+
   it "should create and find by email" do
     contact = Mailee::Contact.create :email => "rest_test_#{@moment}@test.com"
+    found = Mailee::Contact.find_by_email("rest_test_#{@moment}@test.com")
+    found.id.should be(contact.id)
+  end
+
+  it "should create an invalid contact and find by email" do
+    contact = Mailee::Contact.create :email => "rest_test_#{@moment}@test.com", :contact_status_id => -1
     found = Mailee::Contact.find_by_email("rest_test_#{@moment}@test.com")
     found.id.should be(contact.id)
   end

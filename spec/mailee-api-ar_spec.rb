@@ -35,7 +35,7 @@ describe "Mailee" do
     foo.update_attribute :news, true
     found = Mailee::Contact.find_by_email("rest_test_foo_#{@moment}@test.com")
     found.internal_id.to_i.should be foo.id
-    # ==
+     #==
     bar = Bar.create :other_name => "rest_test_bar_#{@moment}", :other_email => "rest_test_bar_#{@moment}@test.com", :other_news => false
     bar.update_attribute :other_news, true
     found = Mailee::Contact.find_by_email("rest_test_bar_#{@moment}@test.com")

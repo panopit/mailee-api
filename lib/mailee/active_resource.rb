@@ -32,10 +32,10 @@ module Mailee
       find(:first, :params => {:internal_id => iid})
     end
     def self.find_by_email email
-      find(:first, :params => {:email => email})
+      find(:first, :params => {:email => email, :status => 'all'})
     end
     def self.search keyword, page=1
-      find(:all, :params => {:page => page, :by_keyword => keyword })
+      find(:all, :params => {:page => page, :by_keyword => keyword, :status => 'all' })
     end
     def unsubscribe(data={})
       #E.g. data --> {:reason => 'Trip to nowhere', :spam => false}

@@ -25,6 +25,7 @@ class MaileeRails < Rails::Railtie
           exit
         end
       end
+      url.gsub!('http://','https://')
       initializer("mailee.rb") do
         "Mailee::Config.site = '#{url}'"
       end

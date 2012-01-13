@@ -67,7 +67,7 @@ module Mailee
           contact.email = send(sync_options[:email])
           contact.name = send(sync_options[:name]) if sync_options[:name]
           contact.save
-          contact.put(:subscribe, :list => sync_options[:list]) if sync_options[:list]
+          contact.put(:list_subscribe, :list => sync_options[:list]) if sync_options[:list]
         end
       rescue
         logger.warn "MAILEE-API: Falhou ao criar o contato #{id} no Mailee"
@@ -84,7 +84,7 @@ module Mailee
               contact.email = send(sync_options[:email])
               contact.name = send(sync_options[:name]) if sync_options[:name]
               contact.save
-              contact.put(:subscribe, :list => sync_options[:list]) if sync_options[:list]
+              contact.put(:list_subscribe, :list => sync_options[:list]) if sync_options[:list]
             end
           else
             create_in_mailee # Se não achou o contato tem q inserir.
