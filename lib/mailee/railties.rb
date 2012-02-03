@@ -15,7 +15,7 @@ class MaileeRails < Rails::Railtie
       puts "Please enter your api URL:"
       attempts = 0
       url = readline.gsub(/\n/,'').gsub(/\s+/, '')
-      while url !~ /^http:\/\/api\.[a-f0-9]{13}\.[a-z\-]+?\.mailee\.me$/
+      while url !~ /^https?:\/\/api\.[a-f0-9]{13}\.[a-z\-]+?\.mailee\.me\/?$/
         attempts += 1
         if attempts < 3
           puts "Invalid URL. Please try again:"
