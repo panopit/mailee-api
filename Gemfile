@@ -3,7 +3,6 @@ source "http://rubygems.org"
 gem "actionmailer", "~> 3.0"
 gem "activeresource", "~> 3.0"
 gem "activerecord", "~> 3.0"
-gem "unicorn"
 
 group :development, :test do
   gem "rspec", "~> 2.8.0"
